@@ -1,44 +1,33 @@
+
+var menu = require('../libs/menu.js')
+
 module.exports = function(controller) {
 
   controller.on('facebook_postback', function(bot, message) {
 
-    if (message.payload == "test_bot_app_get_started_payload") {
-
-      var main_menu = {
-        "text": "Main menu",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"My purchases",
-            "payload":"my_purchases_payload"
-          },
-          {
-            "content_type":"text",
-            "title":"Shop",
-            "payload":"shop_payload"
-          },
-          {
-            "content_type":"text",
-            "title":"Favorites",
-            "payload":"favorites_payload"
-          },
-          {
-            "content_type":"text",
-            "title":"To invaite a friend",
-            "payload":"to_invate_friend_payload"
-          }
-        ]
-      }
-      bot.reply(message, main_menu);
-    } else if (message.payload == "main_menu_payload") {
-      //вызываем главное меню
-      bot.reply(message, "Главное меню");
-    } else if (message.payload == "product_catalog_payload") {
-      //Заглушка
-      bot.reply(message, "Каталог продуктов");
+    if (menu[message.payload]) {
+      bot.reply(message, menu[message.payload]);
     } else {
+      // Тут должен быть обработчик несуществующей команды
       bot.reply(message, message.raw_message.postback.title);
-    }
+
+  });
+
+  controller.on('message_received', function(bot, message) {
+
+      if (message.quick_reply) {
+        if (menu[message.quick_reply.payload]){
+          bot.reply(message, menu[message.quick_reply.payload]);
+          //Возможно неправильно, но пока так.
+          //Возврат на главное меню
+          if (menu[message.quick_reply.payload].name == 'stub_menu'){
+            bot.reply(message, menu.main_menu);
+          }
+        } else {
+          //Тут должен быть обработчик несуществующей команды
+         bot.reply(message, message.text);
+       }
+      }
 
   });
 
