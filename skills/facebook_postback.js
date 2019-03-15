@@ -10,7 +10,7 @@ module.exports = function(controller) {
     } else {
       // Тут должен быть обработчик несуществующей команды
       bot.reply(message, message.raw_message.postback.title);
-
+    }
   });
 
   controller.on('message_received', function(bot, message) {
