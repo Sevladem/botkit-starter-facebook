@@ -1,5 +1,5 @@
 
-var menu = require('../libs/menu.js')
+var menu = require('../helpers/menu.js')
 
 module.exports = function(controller) {
 
