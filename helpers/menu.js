@@ -1,48 +1,24 @@
 
-var stubMenu = {
-  name: 'stub_menu',
-  text: 'Sorry, this page is being constructed.'
-};
+module.exports = menu;
 
-var mainMenu = {
-  text: 'Main menu',
-  quick_replies: [
-    {
-      content_type: 'text',
-      title: 'My purchases',
-      payload: 'myPurchasesPayload'
-    },
-    {
-      content_type: 'text',
-      title: 'Shop',
-      payload: 'shopPayload'
-    },
-    {
-      content_type: 'text',
-      title: 'Favorites',
-      payload: 'favoritesPayload'
-    },
-    {
-      content_type: 'text',
-      title: 'To invaite a friend',
-      payload: 'toInvateFriendPayload'
-    }
-  ]
-};
+function menu(bot, message) {
+  const menuItems = require('./menuItems')(bot, message);
+  const shopEngine = require('./shopEngine')(bot, message);
 
-// var productCatalogMenu = {
-//   text: 'Shop'
-// };
+  return {
+    mainMenu: menuItems.mainMenu,
+    getStartedPayload: menuItems.mainMenu,
+    mainMenuPayload: menuItems.mainMenu,
+    productCatalogPayload: shopEngine.productСarousel,
 
-module.exports = {
-  mainMenu,
+    myPurchasesPayload: menuItems.stubMenu,
+    shopPayload: shopEngine.productСarousel,
+    favoritesPayload: menuItems.stubMenu,
+    toInvateFriendPayload: menuItems.stubMenu,
 
-  getStartedPayload: mainMenu,
-  mainMenuPayload: mainMenu,
-  productCatalogPayload: stubMenu,
+    nextPayload: menuItems.stubMenu,
+    view_more_product: menuItems.stubMenu,
 
-  myPurchasesPayload: stubMenu,
-  shopPayload: stubMenu,
-  favoritesPayload: stubMenu,
-  toInvateFriendPayload: stubMenu
-};
+  };
+
+}

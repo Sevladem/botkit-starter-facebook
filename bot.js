@@ -1,22 +1,5 @@
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-           ______     ______     ______   __  __     __     ______
-          /\  == \   /\  __ \   /\__  _\ /\ \/ /    /\ \   /\__  _\
-          \ \  __<   \ \ \/\ \  \/_/\ \/ \ \  _"-.  \ \ \  \/_/\ \/
-           \ \_____\  \ \_____\    \ \_\  \ \_\ \_\  \ \_\    \ \_\
-            \/_____/   \/_____/     \/_/   \/_/\/_/   \/_/     \/_/
+var dotenv = require('dotenv').config({path: __dirname + '/myEnvVars/.env' })
 
-
-This is a sample Facebook bot built with Botkit.
-
-# RUN THE BOT:
-  Follow the instructions here to set up your Facebook app and page:
-    -> https://developers.facebook.com/docs/messenger-platform/implementation
-  Run your bot from the command line:
-    page_token=<MY PAGE TOKEN> verify_token=<MY_VERIFY_TOKEN> node bot.js
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 var env = require('node-env-file');
 env(__dirname + '/.env');
 

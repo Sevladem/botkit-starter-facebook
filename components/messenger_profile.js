@@ -22,4 +22,7 @@ module.exports = function start(controller) {
         }
       ]
     }]);
+  controller.api.messenger_profile.domain_whitelist(
+    ['https://api.bestbuy.com','https://img.bbystatic.com','https://bots.svdsrvc.tech']
+  )
 };

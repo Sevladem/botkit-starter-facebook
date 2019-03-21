@@ -1,5 +1,5 @@
-.env
 db
 node_modules
 package-lock.json
-components/routes/_*
+components/routes/*
+myEnvVars/*
