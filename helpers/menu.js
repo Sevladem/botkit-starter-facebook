@@ -9,15 +9,21 @@ function menu(bot, message) {
     mainMenu: menuItems.mainMenu,
     getStartedPayload: menuItems.mainMenu,
     mainMenuPayload: menuItems.mainMenu,
-    productCatalogPayload: shopEngine.productСarousel,
+    productCatalogPayload: shopEngine.categoryСarousel,
 
     myPurchasesPayload: menuItems.stubMenu,
-    shopPayload: shopEngine.productСarousel,
+    shopPayload: shopEngine.categoryСarousel,
     favoritesPayload: menuItems.stubMenu,
     toInvateFriendPayload: menuItems.stubMenu,
 
-    nextPayload: menuItems.stubMenu,
-    view_more_product: menuItems.stubMenu,
+    previousCategoryPayload: shopEngine.categoryСarousel,
+    nextCategoryPayload: shopEngine.categoryСarousel,
+
+    previousProductPayload: shopEngine.productСarousel,
+    nextProductPayload: shopEngine.productСarousel,
+
+    viewCategory: shopEngine.productСarousel,
+    viewProduct: menuItems.stubMenu,
 
   };
 
